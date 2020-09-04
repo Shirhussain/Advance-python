@@ -85,4 +85,110 @@ t = threading.Thread(target=Natural)
 t.start()
 
 
+# how can we create a thread by extending a thread class 
+
+
+from threading import Thread
+import threading
+
+
+class MyClass(Thread):
+
+    # i wanna over write 'run ' method 
+    def run(self):
+        print(threading.current_thread().getName())
+        list = []
+        for i in range(10,20):
+            list.append(i)
+
+    print(list)
+
+obj = MyClass()
+# as you can see here that if i use run method it show that we are runing run inside the MyClass
+obj.run()
+# if i run start function it will show that it's class the main thread.
+obj.start()
+
+
+
+
+# create a thread without extending a thread class 
+import  threading
+from threading import Thread
+
+
+class MyThread(Thread):
+
+    def naturalNum(self):
+        print(threading.current_thread().getName())
+        list = []
+        for i in range(20,30):
+            list.append(i)
+        print(list)
+
+
+
+obj = MyThread()
+# here is the way that we can target a function without extending the thread class 
+t1 = Thread(target=obj.naturalNum)
+t1.start()
+
+#if you wanna work with main thread you can do like this 
+obj.naturalNum()
+
+
+# multi threading--> with this you can do multi task in paralal
+import  threading
+
+
+def Number():
+    print(threading.current_thread().getName(),"hass been started")
+
+    for i in range(30,40):
+        print(i)
+
+    print(threading.current_thread().getName(),"has ended")
+
+
+t1 = threading.Thread(target=Number)
+t2 = threading.Thread(target=Number)
+t1.start()
+t2.start()
+
+
+
+
+
+
+
+
+#sleep in threading speacially in multi threading
+import threading
+from time import sleep
+
+
+def Num():
+    print(threading.current_thread().getName(),"Hass been started")
+
+    sleep(2)
+
+    for i in range(40,50):
+        print(i)
+
+    print(threading.current_thread().getName(),"hass endded")
+
+
+n1 = threading.Thread(target=Num)
+n2 = threading.Thread(target=Num)
+n1.start()
+n2.start()
+
+
+
+
+
+
+
+
+
 

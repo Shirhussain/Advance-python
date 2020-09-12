@@ -1,4 +1,12 @@
 #A function can be stored in a variable 
+#in python every function is an object 
+
+#every function in python is a first class object 
+#properties of first class functions
+#function can be stored in variable and act like an object  and function can be passed as an argument to another function 
+# function can be returne from a function  
+# when function can be passed as argument or function can be return from another function so we call them "higher order functions"
+
 
 def favFood(k):
     return k
